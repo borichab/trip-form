@@ -1,0 +1,75 @@
+<!--
+  ****************************
+  @author "Bhartkumar Boricha"
+  ****************************
+-->
+<html>
+    <head>
+        <title>Trip Planer</title>
+        <link rel="stylesheet" type="text/css" href="css/general.css">
+        <link rel="stylesheet" type="text/css" href="css/variant1.css">
+    </head>
+    <body>
+      <div class="login-box">
+        <h2>Trip Planner</h2>
+
+        <form name="myForm" id="myForm" onsubmit="return validate()" action="/">
+            <table table-border="none">
+                <tr>
+                    <td><label for="fullname">Full Name :</label></td>
+                    <td><input type="text" id="fullname" name="fullname" placeholder="Type Full Name Here" required="required"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email :</label></td>
+                    <td><input type="email" id="email" name="email" placeholder="Type Email Here" required="required"></td>
+                </tr>
+                <tr>
+                    <td><label>Select City :  </label></td>
+                    <td>
+                        <input 
+                        type="radio" name="city" 
+                        id="agra" class="input-hidden" value="Agra"/>
+                        <label for="agra" class="radio-text">
+                        Agra
+                        </label>
+
+                        <input 
+                        type="radio" name="city"
+                        id="berlin" class="input-hidden" value="Berlin"/>
+                        <label for="berlin" class="radio-text">
+                        Berlin
+                        </label>
+
+                        <input 
+                        type="radio" name="city"
+                        id="paris" class="input-hidden" value="Paris" />
+                        <label for="paris" class="radio-text">
+                        Paris
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="today" style="margin-right: 10px;">Journey Date :</label></td>
+                    <td><input type="text" placeholder="DD/MM/YYYY" id="today" name="date"></td>
+                </tr>
+                <tr>
+                    <td><label for="time" style="margin-right: 10px;">Journey Time :</label></td>
+                    <td style="display: flex; justify-content: space-between;">
+                        <input type="text" placeholder="hh:mm" id="time" name="time">
+                        <select name="day">
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="btn-div">
+                <button type="submit">
+                Book Now
+                </button><br>
+            </div>
+        </form>
+      </div>
+    </body>
+    <script src="js/v1_script.js"></script>
+</html>

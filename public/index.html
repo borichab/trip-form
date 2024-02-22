@@ -1,0 +1,53 @@
+<!--
+  ****************************
+  @author "Bhartkumar Boricha"
+  ****************************
+-->
+<html>
+    <head>
+        <title>Trip Planer</title>
+        <link rel="stylesheet" type="text/css" href="css/general.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+      <div class="container d-block" id="container">
+        <a href="variant1.html" id="variant1">Variant A</a>
+        <a href="variant2.html" id="variant2">Variant B</a>
+      </div>
+
+      <div class="btn-block d-none" id="btn-block">
+        <button onclick="clearSession()">Want to try one more time ?</button>
+      </div>
+      <div class="google-form d-none" id="gForm">
+        <iframe id="g-form" src="https://docs.google.com/forms/d/e/1FAIpQLScNGFPMtOM47OD9AVSq1c6hDvtqSn6tpcxWg0eHIfIXP1zS7g/viewform?usp=pp_url&entry.1599204687=04:10&entry.1968232619=05:11" 
+         width="600px" height="800px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+    </body>
+
+    <script>
+
+      function clearSession(){
+        sessionStorage.setItem("timeVariant1", 0);
+        sessionStorage.setItem("timeVariant2", 0);
+        window.location.reload();
+      }
+
+      var time_variant1 = sessionStorage.getItem("timeVariant1");
+      var time_variant2 = sessionStorage.getItem("timeVariant2");
+      if((time_variant1 != null && time_variant2 != null) && (time_variant1 != 0 && time_variant2 != 0)){
+        console.log("variant1 : "+ time_variant1 +" & variant2 : "+ time_variant2);
+        var element = document.getElementById("gForm");
+        var element2 = document.getElementById("container");
+        element2.classList.add("d-none");
+
+        var month = (new Date()).getMonth();
+        var myURL = 'https://docs.google.com/forms/d/e/1FAIpQLScNGFPMtOM47OD9AVSq1c6hDvtqSn6tpcxWg0eHIfIXP1zS7g'+
+        '/viewform?usp=pp_url&entry.1599204687='+time_variant1+'&entry.1968232619='+time_variant2;
+        document.getElementById('g-form').src = myURL;
+
+        element.classList.remove("d-none");
+        document.getElementById("btn-block").classList.remove("d-none");
+      }
+
+    </script>
+</html>
